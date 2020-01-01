@@ -1,0 +1,77 @@
+ClrHome
+0->A
+0->B
+0->C
+0->D
+0->E
+4.591836735->X
+Output(5,13,"00")
+Output(5,10,"00")
+Output(5,7,"00")
+Output(5,3,"000")
+Output(5,12,":")
+Output(5,9,":")
+Output(5,6,":")
+Output(4,3,"PRESS  ENTER")
+Repeat N=105
+	getKey->N
+End
+Output(4,3,"            ")
+For(A,1,13,1)
+	getKey->O
+	If O=105
+	Then
+		Output(4,6,"PAUSED")
+		Pause 
+		Output(4,6,"      ")
+	End
+	A*X->F
+	Output(7,13,int(F))
+	If A>=13
+	Then
+		0->A
+		B+1->B
+		If B<=10
+		14->I
+		If B>=10
+		13->I
+		Output(5,I,B)
+		If B>=60
+		Then
+			0->B
+			Output(5,13,"0")
+			C+1->C
+			If C<=10
+			11->J
+			If C>=10
+			10->J
+			Output(5,J,C)
+			If C>=60
+			Then
+				0->C
+				Output(5,10,"0")
+				D+1->D
+				If D<=10
+				8->K
+				If D>=10
+				7->K
+				Output(5,K,D)
+				If D>=24
+				Then
+					0->D
+					Output(5,7,"0")
+					E+1->E
+					If E<=10
+					5->L
+					If E>=10
+					4->L
+					If E>=100
+					3->L
+					If E>=1000
+					2->L
+					Output(5,L,E)
+				End
+			End
+		End
+	End
+End

@@ -1,0 +1,58 @@
+ClrHome
+Menu("VCALC","POLAR",1,"HERON",2,"COSLAW",3,"FACTORIAL",4,"FORCEG",5,"INFO",6,"QUIT",I)
+
+Lbl 1
+ClrHome
+Disp "POLAR"
+Input "X",X
+Input "Y",Y
+sqrt(X^^2+Y^^2)->D
+tan^-1(Y/X)->E
+Disp "POLAR",D
+Disp "theta",E
+Goto I
+Lbl 2
+ClrHome
+Input "A",X
+Input "B",Y
+Input "C",Z
+(X+Y+Z)/2->S
+sqrt(S*(S-X)*(S-Y)*(S-Z))->D
+Disp "AREA",D
+Goto I
+Lbl 3
+Input "SIDE",X
+Input "SIDE",Y
+Input "ANGLE",Z
+sqrt(X^^2+Y^^2-2*X*Y*cos(Z))->D
+Disp "SIDE",D
+Goto I
+Lbl 4
+Input "FACTORIAL",Y
+fPart(Y)->S
+If S=0
+Then
+	Y!->D
+	Disp D
+Else
+	fnInt([e]^~X*X^Y,X,0,110)->D
+	Disp D
+End
+Goto I
+Lbl 5
+Input "M1  ",X
+Input "M2  ",Y
+Input "R   ",Z
+6.671->H
+H*10^~11->H
+(H*X*Y)/Z^^2->D
+Disp "FORCE",D
+Goto I
+Lbl 6
+ClrHome
+Output(1,3,"VCALC 3.1.0"
+Output(2,5,"TI-83+"
+
+
+
+Lbl I

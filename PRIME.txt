@@ -1,0 +1,41 @@
+ClrHome
+0->A
+0->B
+0->C
+Input "MAX PRIMES      ",N
+ClrHome
+Output(1,1,"CALCULATING"
+Output(2,1,"PRIME"
+Output(7,10,"PASS*"
+Output(7,1,"CYCLES"
+Output(2,10,"LENGTH"
+SetUpEditor L1
+{2,3->L1
+For(P,3,N,2
+	For(Q,2,dim(L1
+		If not(fPart(P/L1(Q
+		Then
+			9+dim(L1->Q
+		End
+		C+1->C
+		getKey->K
+		If K=105
+		Then
+			Output(1,1,"PAUSED     "
+			Pause 
+		Else
+			Output(1,1,"CALCULATING"
+		End
+	End
+	A+1->A
+	Output(8,1,A
+	Output(3,1,max(L1
+	Output(3,10,dim(L1
+	Output(8,10,C
+	If Q-3<dim(L1
+	Then
+		P->L1(1+dim(L1
+		0->C
+	End
+End
+Output(1,1,"DONE       "
