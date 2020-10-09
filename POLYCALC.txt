@@ -1,0 +1,98 @@
+a+bi
+0->theta
+Menu("POLYCALC","QUAD",1,"CUBIC",2,"QUARTIC",3,"TEST",4,"INFO",5,"QUIT",0)
+Lbl 1
+ClrHome
+Input "A ",A
+Input "B ",B
+Input "C ",C
+Lbl X
+(~B+sqrt(B^^2-4*A*C))/(2*A)->D
+(~B-sqrt(B^^2-4*A*C))/(2*A)->E
+If theta=1
+Goto 7
+Disp "X=",D
+Disp E
+Goto 0
+Lbl 2
+ClrHome
+Input "A ",A
+Input "B ",B
+Input "C ",C
+Input "D ",D
+Lbl Y
+(~B)/(3*A)->P
+P^3+(B*C-3*A*D)/(6*A^^2)->Q
+C/(3*A)->R
+cuberoot(Q+sqrt(Q^^2+(R-P^^2)^3))+cuberoot(Q-sqrt(Q^^2+(R-P^^2)^3))+P->X
+If theta=1
+Goto 8
+Disp "X=",X
+Goto 0
+Lbl 3
+ClrHome
+Input "A ",A
+Input "B ",B
+Input "C ",C
+Input "D ",D
+Input "E ",E
+Lbl Z
+(8*A*C-3*(B^^2))/(8*(A^^2))->G
+((B^3)+8*D*A^^2-4*A*B*C)/(8*A^3)->H
+(C^^2)-3*B*D+12*A*E->I
+2*C^3-9*B*C*D+27*B^^2*E+27*A*D^^2-72*A*C*E->J
+cuberoot((J+sqrt(J^^2-4*I^3))/2)->K
+0.5*sqrt((~2/3)*G+(1/(3*A))*(K+(I/K)))->L
+(~B/(4*A))->M
+0.5*sqrt(~4*L^^2-2*G+(H/L))->N
+0.5*sqrt(~4*L^^2-2*G-(H/L))->O
+If theta=1
+Goto 9
+Disp "X=",M-L+N
+Disp M-L-N
+Disp M+L+O
+Disp M+L-O
+Goto 0
+Lbl 4
+1->theta
+ClrHome
+Disp "TESTING"
+Disp "QUAD"
+1->A
+1->B
+0->C
+Goto X
+Lbl 7
+If D=0 and E=~1
+Then
+	Disp " PASS"
+Else
+	Disp " FAIL"
+End
+Disp "CUBIC"
+1->C
+1->D
+Goto Y
+Lbl 8
+If X=~1
+Then
+	Disp " PASS"
+Else
+	Disp " FAIL"
+End
+Disp "QUARTIC"
+0->E
+Goto Z
+Lbl 9
+If M=~.25 and N=.5 and O=[i]
+Then
+	Disp " PASS"
+Else
+	Disp " FAIL"
+End
+Goto 0
+Lbl 5
+ClrHome
+Output(1,5,"POLYCALC"
+Output(2,7,"v1.0"
+Lbl 0
