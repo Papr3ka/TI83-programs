@@ -7,3 +7,4 @@ Loaded programs:
 Clock (stopwatch)
 VCALC
 Prime
+POLYCALC
